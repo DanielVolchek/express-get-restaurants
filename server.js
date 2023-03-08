@@ -9,6 +9,10 @@ const port = 3000;
 
 loadingRoutes(app);
 
+// middleware for body and for url-encoded data
+app.use(express.json());
+app.use(express.urlencoded({ extended: false }));
+
 app.listen(port, () => {
   sequelize.sync();
   console.log("Your server is listening on port " + port);
